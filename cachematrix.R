@@ -1,4 +1,10 @@
+## It's an R function that is able to cache potentially time-consuming computations.
+## by caching the inverse of a matrix rather than compute it repeatedly.
 
+## makeCacheMatrix creates a special "matrix", 
+## which is really a list containing a function to
+## set&get the value of the matrix
+## set&get the value of the inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         m <- NULL
@@ -15,7 +21,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 }
 
-
+## The following function calculates the inverse of the special "matrix" 
+## created with the above function. 
+## If the inverse has already been calculated (and the matrix has not changed), 
+## then the cachesolve should retrieve the inverse from the cache.
 
 
 cacheSolve <- function(x, ...) {
